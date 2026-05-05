@@ -1,11 +1,14 @@
 import { useState } from "react";
+import CVcomponent from "./components/CVcomponent.jsx";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <main></main>
+      <main>
+        <CVcomponent></CVcomponent>
+      </main>
     </>
   );
 }
