@@ -85,7 +85,13 @@ export default function CVexperience({ editMode }) {
 
   return (
     <h2>
-      Experience <i>(edit mode)</i>
+      {editMode ? (
+        <>
+          Experience <i>(edit mode)</i>
+        </>
+      ) : (
+        "Experience"
+      )}
       <RenderModules />
       <button onClick={addModule}>+</button>
     </h2>
