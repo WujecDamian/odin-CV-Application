@@ -84,10 +84,10 @@ export default function CVeducation({ editMode }) {
   }
 
   return (
-    <h2>
+    <section className="inputs">
       Education
       <RenderModules />
       <button onClick={addModule}>+</button>
-    </h2>
+    </section>
   );
 }

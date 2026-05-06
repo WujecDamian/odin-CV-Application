@@ -1,4 +1,3 @@
-import js from "@eslint/js";
 import { useState } from "react";
 
 export default function CVgeneral({ editMode }) {
