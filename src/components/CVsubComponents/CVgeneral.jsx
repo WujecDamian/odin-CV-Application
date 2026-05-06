@@ -19,9 +19,7 @@ export default function CVgeneral({ editMode }) {
   if (editMode === true) {
     return (
       <section className="input_edits">
-        <h2>
-          General <i>(edit mode)</i>
-        </h2>
+        <h2>General</h2>
         <div className="input">
           <label htmlFor="Name">Name: </label>
           <input

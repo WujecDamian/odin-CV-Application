@@ -85,7 +85,7 @@ export default function CVeducation({ editMode }) {
 
   return (
     <h2>
-      Education <i>(edit mode)</i>
+      Education
       <RenderModules />
       <button onClick={addModule}>+</button>
     </h2>
