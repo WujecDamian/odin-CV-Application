@@ -1,5 +1,5 @@
-export default function CVheading(){
-    return(
-        <h1>CV Creator!</h1>
-    )
+export default function CVheading(editMode) {
+  return (
+    <h1>{editMode == true ? <>CV Creator (edit mode)</> : "CV Creator"}</h1>
+  );
 }
