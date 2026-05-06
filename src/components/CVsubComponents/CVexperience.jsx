@@ -21,41 +21,50 @@ export default function CVexperience({ editMode }) {
     function handleChangeDate(e) {
       setDate(e.target.value);
     }
-
-    return (
-      <section className="Experience_Module">
-        <div className="input">
-          <label htmlFor="company">company: </label>
-          <input
-            type="text"
-            name="company"
-            id="company"
-            value={company}
-            onChange={handleChangeCompany}
-          />
-        </div>
-        <div className="input">
-          <label htmlFor="positionTitle">positionTitle: </label>
-          <input
-            type="text"
-            name="positionTitle"
-            id="positionTitle"
-            value={positionTitle}
-            onChange={handleChangePositionTitle}
-          />
-        </div>
-        <div className="input">
-          <label htmlFor="date">date: </label>
-          <input
-            type="tel"
-            name="date"
-            id="date"
-            value={date}
-            onChange={handleChangeDate}
-          />
-        </div>
-      </section>
-    );
+    if (editMode === true) {
+      return (
+        <section className="Experience_Module">
+          <div className="input">
+            <label htmlFor="company">company: </label>
+            <input
+              type="text"
+              name="company"
+              id="company"
+              value={company}
+              onChange={handleChangeCompany}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="positionTitle">positionTitle: </label>
+            <input
+              type="text"
+              name="positionTitle"
+              id="positionTitle"
+              value={positionTitle}
+              onChange={handleChangePositionTitle}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="date">date: </label>
+            <input
+              type="tel"
+              name="date"
+              id="date"
+              value={date}
+              onChange={handleChangeDate}
+            />
+          </div>
+        </section>
+      );
+    } else {
+      return (
+        <section className="experience_Module">
+          <h3>Company: {company}</h3>
+          <h3>Position title: {positionTitle}</h3>
+          <h3>Date: {date}</h3>
+        </section>
+      );
+    }
   }
 
   function addModule() {
@@ -74,15 +83,11 @@ export default function CVexperience({ editMode }) {
     );
   }
 
-  if (editMode === true) {
-    return (
-      <h2>
-        Experience <i>(edit mode)</i>
-        <RenderModules />
-        <button onClick={addModule}>+</button>
-      </h2>
-    );
-  } else {
-    return <h2>Experience</h2>;
-  }
+  return (
+    <h2>
+      Experience <i>(edit mode)</i>
+      <RenderModules />
+      <button onClick={addModule}>+</button>
+    </h2>
+  );
 }

@@ -21,41 +21,50 @@ export default function CVeducation({ editMode }) {
     function handleChangeDate(e) {
       setDate(e.target.value);
     }
-
-    return (
-      <section className="education_Module">
-        <div className="input">
-          <label htmlFor="school">school: </label>
-          <input
-            type="text"
-            name="school"
-            id="school"
-            value={school}
-            onChange={handleChangeSchool}
-          />
-        </div>
-        <div className="input">
-          <label htmlFor="titleOfStudy">titleOfStudy: </label>
-          <input
-            type="text"
-            name="titleOfStudy"
-            id="titleOfStudy"
-            value={titleOfStudy}
-            onChange={handleChangeTitleOfStudy}
-          />
-        </div>
-        <div className="input">
-          <label htmlFor="date">date: </label>
-          <input
-            type="tel"
-            name="date"
-            id="date"
-            value={date}
-            onChange={handleChangeDate}
-          />
-        </div>
-      </section>
-    );
+    if (editMode === true) {
+      return (
+        <section className="education_Module">
+          <div className="input">
+            <label htmlFor="school">school: </label>
+            <input
+              type="text"
+              name="school"
+              id="school"
+              value={school}
+              onChange={handleChangeSchool}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="titleOfStudy">titleOfStudy: </label>
+            <input
+              type="text"
+              name="titleOfStudy"
+              id="titleOfStudy"
+              value={titleOfStudy}
+              onChange={handleChangeTitleOfStudy}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="date">date: </label>
+            <input
+              type="tel"
+              name="date"
+              id="date"
+              value={date}
+              onChange={handleChangeDate}
+            />
+          </div>
+        </section>
+      );
+    } else {
+      return (
+        <section className="education_Module">
+          <h3>School: {school}</h3>
+          <h3>Title of study: {titleOfStudy}</h3>
+          <h3>Date: {date}</h3>
+        </section>
+      );
+    }
   }
 
   function addModule() {
@@ -74,15 +83,11 @@ export default function CVeducation({ editMode }) {
     );
   }
 
-  if (editMode === true) {
-    return (
-      <h2>
-        Education <i>(edit mode)</i>
-        <RenderModules />
-        <button onClick={addModule}>+</button>
-      </h2>
-    );
-  } else {
-    return <h2>Education</h2>;
-  }
+  return(
+  <h2>
+    Education <i>(edit mode)</i>
+    <RenderModules />
+    <button onClick={addModule}>+</button>
+  </h2>;
+  )
 }
