@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { createElement, useState } from "react";
+import React from "react";
 
 export default function CVeducation({ editMode }) {
+  const [modulesArray, setModulesArray] = useState([""]);
+
   function EducationModule() {
     const [school, setSchool] = useState("");
     const [titleOfStudy, setTitleOfStudy] = useState("");
@@ -54,19 +57,27 @@ export default function CVeducation({ editMode }) {
   }
 
   function addModule() {
-    const educationSection = document.querySelector(".education");
-    let module = { EducationModule };
-    educationSection.append(module);
+    console.log(modulesArray.length);
+    let newModulesArray = modulesArray.slice();
+    const eduModule = React.createElement(EducationModule);
+    newModulesArray.push(eduModule);
+    setModulesArray(newModulesArray);
+    RenderModules();
+  }
+  function RenderModules() {
+    return createElement(
+      "section",
+      { className: "educationModules" },
+      ...modulesArray,
+    );
   }
 
   if (editMode === true) {
     return (
       <h2>
         Education <i>(edit mode)</i>
-        <section className="education">
-          <EducationModule></EducationModule>
-        </section>
-        <button onClick={addModule}></button>
+        <RenderModules />
+        <button onClick={addModule}>+</button>
       </h2>
     );
   } else {
