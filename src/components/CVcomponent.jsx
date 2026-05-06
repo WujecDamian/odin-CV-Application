@@ -14,7 +14,7 @@ export default function CVcomponent() {
 
   return (
     <>
-      <CVheading></CVheading>
+      <CVheading editMode={editMode}></CVheading>
       <CVgeneral editMode={editMode}></CVgeneral>
       <CVeducation editMode={editMode}></CVeducation>
       <CVexperience editMode={editMode}></CVexperience>
