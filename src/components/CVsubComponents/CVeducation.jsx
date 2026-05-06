@@ -2,7 +2,9 @@ import { createElement, useState } from "react";
 import React from "react";
 
 export default function CVeducation({ editMode }) {
-  const [modulesArray, setModulesArray] = useState([""]);
+  const [modulesArray, setModulesArray] = useState([
+    React.createElement(EducationModule),
+  ]);
 
   function EducationModule() {
     const [school, setSchool] = useState("");
@@ -37,7 +39,7 @@ export default function CVeducation({ editMode }) {
           <input
             type="text"
             name="titleOfStudy"
-            id="name"
+            id="titleOfStudy"
             value={titleOfStudy}
             onChange={handleChangeTitleOfStudy}
           />
@@ -47,7 +49,7 @@ export default function CVeducation({ editMode }) {
           <input
             type="tel"
             name="date"
-            id="name"
+            id="date"
             value={date}
             onChange={handleChangeDate}
           />
