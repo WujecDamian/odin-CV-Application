@@ -55,12 +55,14 @@ export default function CVgeneral({ editMode }) {
     );
   } else {
     return (
-      <div className="general_Module">
-        <h2>General</h2>
-        <h3>Name: {name}</h3>
-        <h3>E-mail: {email}</h3>
-        <h3>Phone: {phone}</h3>
-      </div>
+      <section className="CV_general">
+        <div className="general_Module">
+          <h2>General</h2>
+          <h3>Name: {name}</h3>
+          <h3>E-mail: {email}</h3>
+          <h3>Phone: {phone}</h3>
+        </div>
+      </section>
     );
   }
 }
