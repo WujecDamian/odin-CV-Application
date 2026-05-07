@@ -17,7 +17,7 @@ export default function CVeducation({ editMode }) {
   }
   if (editMode === true) {
     return (
-      <section className="e=ducation_Module">
+      <section className="education_Module">
         <div className="input">
           <label htmlFor="school">school: </label>
           <input
