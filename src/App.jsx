@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CVcomponent from "./components/CVcomponent.jsx";
 
 import "./App.css";
