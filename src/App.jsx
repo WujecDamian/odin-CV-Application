@@ -2,6 +2,7 @@ import { useState } from "react";
 import CVcomponent from "./components/CVcomponent.jsx";
 
 import "./App.css";
+import "./styles/componentStyling.css";
 
 function App() {
   return (
