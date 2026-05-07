@@ -66,7 +66,12 @@ export default function CVcomponent() {
         <button onClick={addExpModule}>+</button>
       </section>
 
-      <button onClick={handleEditMode}>{editMode ? "Submit" : "Edit"}</button>
+      <button
+        onClick={handleEditMode}
+        className={editMode ? "Form__Btn edit" : "Form__Btn"}
+      >
+        {editMode ? "Submit" : "Edit"}
+      </button>
     </>
   );
 }
