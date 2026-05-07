@@ -9,12 +9,12 @@ export default function CVcomponent() {
 
   //* EDUCATION MODULES
   const [educationModules, setEducationModules] = useState([
-    <CVeducation editMode={editMode}></CVeducation>,
+    <CVeducation editMode={editMode} key={crypto.randomUUID()}></CVeducation>,
   ]);
   function addEduModule() {
     const newEducationModules = [
       ...educationModules,
-      <CVeducation editMode={editMode}></CVeducation>,
+      <CVeducation editMode={editMode} key={crypto.randomUUID()}></CVeducation>,
     ];
     setEducationModules(newEducationModules);
   }
@@ -25,14 +25,17 @@ export default function CVcomponent() {
   }
   //* EXPERIENCE MODULES
   const [experienceModules, setExperienceModules] = useState([
-    <CVeducation editMode={editMode}></CVeducation>,
+    <CVexperience editMode={editMode} key={crypto.randomUUID()}></CVexperience>,
   ]);
   function addExpModule() {
     const newExperienceModules = [
       ...experienceModules,
-      <CVexperience editMode={editMode}></CVexperience>,
+      <CVexperience
+        editMode={editMode}
+        key={crypto.randomUUID()}
+      ></CVexperience>,
     ];
-    setEducationModules(newExperienceModules);
+    setExperienceModules(newExperienceModules);
   }
 
   return (
