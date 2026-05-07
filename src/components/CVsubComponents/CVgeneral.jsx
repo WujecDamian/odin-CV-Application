@@ -17,7 +17,7 @@ export default function CVgeneral({ editMode }) {
 
   if (editMode === true) {
     return (
-      <section className="input_edits">
+      <section className="CV_general">
         <h2>General</h2>
         <div className="input">
           <label htmlFor="Name">Name: </label>
