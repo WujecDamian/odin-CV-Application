@@ -7,17 +7,62 @@ import { useState } from "react";
 export default function CVcomponent() {
   const [editMode, setEditMode] = useState(true);
 
+  //* EDUCATION MODULES
+  const [educationModules, setEducationModules] = useState([
+    <CVeducation editMode={editMode}></CVeducation>,
+  ]);
+  function addEduModule() {
+    const newEducationModules = [
+      ...educationModules,
+      <CVeducation editMode={editMode}></CVeducation>,
+    ];
+    setEducationModules(newEducationModules);
+  }
+
   function handleEditMode() {
     setEditMode(!editMode);
     console.log(editMode);
+  }
+  //* EXPERIENCE MODULES
+  const [experienceModules, setExperienceModules] = useState([
+    <CVeducation editMode={editMode}></CVeducation>,
+  ]);
+  function addExpModule() {
+    const newExperienceModules = [
+      ...experienceModules,
+      <CVexperience editMode={editMode}></CVexperience>,
+    ];
+    setEducationModules(newExperienceModules);
   }
 
   return (
     <>
       <CVheading editMode={editMode}></CVheading>
       <CVgeneral editMode={editMode}></CVgeneral>
-      <CVeducation editMode={editMode}></CVeducation>
-      <CVexperience editMode={editMode}></CVexperience>
+      <section className="CV_education">
+        <h2>Education:</h2>
+        <div className="education_modules">
+          {educationModules.map(() => (
+            <>
+              <CVeducation editMode={editMode}></CVeducation>
+            </>
+          ))}
+        </div>
+        <button onClick={addEduModule}>+</button>
+      </section>
+
+      <section className="CV_experience">
+        <h2>Experience:</h2>
+        <div className="experience_modules">
+          {experienceModules.map(() => (
+            <>
+              <CVexperience editMode={editMode}></CVexperience>
+            </>
+          ))}
+        </div>
+        <button onClick={addExpModule}>+</button>
+      </section>
+
       <button onClick={handleEditMode}>{editMode ? "Submit" : "Edit"}</button>
     </>
   );
