@@ -1,0 +1,26 @@
+.CV_general,
+.CV_education,
+.CV_experience {
+  margin: 2rem;
+  border: solid rgba(255, 255, 255, 0.25);
+  border-width: 0px 2px 0px 2px;
+  transition:
+    border-radius 1s 0.25s,
+    border-color 0.2s;
+}
+.CV_general:hover,
+.CV_general:focus,
+.CV_education:focus,
+.CV_education:hover,
+.CV_experience:focus,
+.CV_experience:hover {
+  border-radius: 20px;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.input {
+  display: flex;
+  gap: 1rem;
+}
+
+.education_Module,.experience_Module
