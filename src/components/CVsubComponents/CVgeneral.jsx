@@ -21,31 +21,34 @@ export default function CVgeneral({ editMode }) {
         <h2>General</h2>
         <div className="general_Module">
           <div className="input">
-            <label htmlFor="Name">Name: </label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               name="Name"
               id="name"
+              autoComplete="name"
               value={name}
               onChange={(e) => handleChange("name", e)}
             />
           </div>
           <div className="input">
-            <label htmlFor="Email">Email: </label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="Email"
-              id="name"
+              id="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => handleChange("email", e)}
             />
           </div>
           <div className="input">
-            <label htmlFor="Phone">Phone: </label>
+            <label htmlFor="phone">Phone</label>
             <input
               type="tel"
               name="Phone"
-              id="name"
+              id="phone"
+              autoComplete="tel"
               value={phone}
               onChange={(e) => handleChange("phone", e)}
             />
