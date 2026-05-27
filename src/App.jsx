@@ -9,10 +9,7 @@ function App() {
       <section className="hero-panel">
         <span className="eyebrow">Resume Studio</span>
         <h1>Build clean, polished CVs with ease.</h1>
-        <p>
-          Modern layout, soft glass surfaces, and crisp typography for a premium
-          Apple-inspired experience.
-        </p>
+        <p>Add General Information, Your Education & Experience</p>
       </section>
 
       <section className="cv-frame">
