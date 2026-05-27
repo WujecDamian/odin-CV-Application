@@ -7,71 +7,78 @@ import { useState } from "react";
 export default function CVcomponent() {
   const [editMode, setEditMode] = useState(true);
 
-  //* EDUCATION MODULES
-  const [educationModules, setEducationModules] = useState([
-    <CVeducation editMode={editMode} key={crypto.randomUUID()}></CVeducation>,
+  const [educationItems, setEducationItems] = useState([
+    { id: crypto.randomUUID() },
   ]);
+  const [experienceItems, setExperienceItems] = useState([
+    { id: crypto.randomUUID() },
+  ]);
+
   function addEduModule() {
-    const newEducationModules = [
-      ...educationModules,
-      <CVeducation editMode={editMode} key={crypto.randomUUID()}></CVeducation>,
-    ];
-    setEducationModules(newEducationModules);
+    setEducationItems((prev) => [...prev, { id: crypto.randomUUID() }]);
+  }
+
+  function addExpModule() {
+    setExperienceItems((prev) => [...prev, { id: crypto.randomUUID() }]);
   }
 
   function handleEditMode() {
-    setEditMode(!editMode);
-    console.log(editMode);
-  }
-  //* EXPERIENCE MODULES
-  const [experienceModules, setExperienceModules] = useState([
-    <CVexperience editMode={editMode} key={crypto.randomUUID()}></CVexperience>,
-  ]);
-  function addExpModule() {
-    const newExperienceModules = [
-      ...experienceModules,
-      <CVexperience
-        editMode={editMode}
-        key={crypto.randomUUID()}
-      ></CVexperience>,
-    ];
-    setExperienceModules(newExperienceModules);
+    setEditMode((current) => !current);
   }
 
   return (
-    <>
-      <CVheading editMode={editMode}></CVheading>
-      <CVgeneral editMode={editMode}></CVgeneral>
+    <div className="resume-shell">
+      <header className="section-header header-top">
+        <CVheading editMode={editMode} />
+        <button className="Form__Btn toggle" onClick={handleEditMode}>
+          {editMode ? "Preview" : "Edit"}
+        </button>
+      </header>
+
+      <CVgeneral editMode={editMode} />
+
       <section className="CV_education">
-        <h2>Education:</h2>
+        <div className="section-header">
+          <h2>Education</h2>
+          <button
+            className="add-btn"
+            onClick={addEduModule}
+            aria-label="Add education"
+          >
+            +
+          </button>
+        </div>
         <div className="education_modules">
-          {educationModules.map(() => (
-            <>
-              <CVeducation editMode={editMode}></CVeducation>
-            </>
+          {educationItems.map((item) => (
+            <CVeducation editMode={editMode} key={item.id} />
           ))}
         </div>
-        <button onClick={addEduModule}>+</button>
       </section>
 
       <section className="CV_experience">
-        <h2>Experience:</h2>
+        <div className="section-header">
+          <h2>Experience</h2>
+          <button
+            className="add-btn"
+            onClick={addExpModule}
+            aria-label="Add experience"
+          >
+            +
+          </button>
+        </div>
         <div className="experience_modules">
-          {experienceModules.map(() => (
-            <>
-              <CVexperience editMode={editMode}></CVexperience>
-            </>
+          {experienceItems.map((item) => (
+            <CVexperience editMode={editMode} key={item.id} />
           ))}
         </div>
-        <button onClick={addExpModule}>+</button>
       </section>
 
       <button
+        className={editMode ? "Form__Btn primary" : "Form__Btn secondary"}
         onClick={handleEditMode}
-        className={editMode ? "Form__Btn edit" : "Form__Btn"}
       >
-        {editMode ? "Submit" : "Edit"}
+        {editMode ? "Submit" : "Edit CV"}
       </button>
-    </>
+    </div>
   );
 }
