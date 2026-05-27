@@ -102,7 +102,10 @@
 
 .CV_education,
 .CV_experience {
-  transition: transform 0.25s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.25s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .CV_education:hover,
