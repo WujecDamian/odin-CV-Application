@@ -99,3 +99,46 @@
   color: #0f172a;
   border: none;
 }
+
+.CV_education,
+.CV_experience {
+  transition: transform 0.25s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.CV_education:hover,
+.CV_experience:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+}
+
+.general_Module,
+.education_Module,
+.experience_Module {
+  padding: 0.75rem 0.5rem;
+  background: rgba(245, 247, 255, 0.88);
+  border-radius: 24px;
+}
+
+.general_Module {
+  display: grid;
+  gap: 1rem;
+}
+
+.CV_general h2,
+.CV_education h2,
+.CV_experience h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.CV_general h3,
+.CV_education h3,
+.CV_experience h3 {
+  font-weight: 500;
+}
+
+.CV_experience .input,
+.CV_education .input,
+.CV_general .input {
+  margin-bottom: 0.75rem;
+}
