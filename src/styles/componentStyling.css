@@ -145,3 +145,40 @@
 .CV_general .input {
   margin-bottom: 0.75rem;
 }
+
+.CV_general,
+.CV_education,
+.CV_experience {
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.CV_general h2,
+.CV_education h2,
+.CV_experience h2 {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.CV_general h2::after,
+.CV_education h2::after,
+.CV_experience h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(79,108,255,1) 0%, rgba(111, 143, 255, 1) 100%);
+  margin-top: 0.85rem;
+}
+
+.general_Module,
+.education_Module,
+.experience_Module {
+  padding: 1rem;
+  background: rgba(245, 247, 255, 0.9);
+  border-radius: 22px;
+  gap: 1rem;
+}
