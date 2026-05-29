@@ -1,5 +1,13 @@
-export default function CVheading(editMode) {
+export default function CVheading({ editMode }) {
   return (
-    <h1>{editMode == true ? <>CV Creator (edit mode)</> : "CV Creator"}</h1>
+    <>
+      {editMode ? (
+        <h1 className="CV_heading">
+          CV Creator <i className="edit">(edit mode)</i>
+        </h1>
+      ) : (
+        <h1 className="CV_heading">CV Creator</h1>
+      )}
+    </>
   );
 }

@@ -1,0 +1,188 @@
+.CV_heading {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+}
+
+.CV_heading .edit {
+  font-size: 0.45em;
+  font-style: normal;
+  margin-left: 0.35rem;
+  color: var(--accent);
+}
+
+.CV_general,
+.CV_education,
+.CV_experience {
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 28px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.CV_general {
+  display: grid;
+  gap: 1rem;
+}
+
+.CV_general h2,
+.CV_education h2,
+.CV_experience h2 {
+  margin-top: 0;
+  color: var(--heading);
+  font-size: 1.2rem;
+}
+
+.CV_general:hover,
+.CV_education:hover,
+.CV_experience:hover {
+  border-color: rgba(79, 108, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.input {
+  display: grid;
+  grid-template-columns: minmax(100px, auto) minmax(0, 1fr);
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input label {
+  align-self: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.input input {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 18px;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.04);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input input:focus {
+  outline: none;
+  border-color: rgba(79, 108, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(79, 108, 255, 0.12);
+}
+
+.education_Module,
+.experience_Module,
+.general_Module {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.education_Module h3,
+.experience_Module h3,
+.general_Module h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.edit {
+  background-color: #ffba0b;
+  color: #0f172a;
+  border: none;
+}
+
+.CV_education,
+.CV_experience {
+  transition:
+    transform 0.25s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.CV_education:hover,
+.CV_experience:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+}
+
+.general_Module,
+.education_Module,
+.experience_Module {
+  padding: 0.75rem 0.5rem;
+  background: rgba(245, 247, 255, 0.88);
+  border-radius: 24px;
+}
+
+.general_Module {
+  display: grid;
+  gap: 1rem;
+}
+
+.CV_general h2,
+.CV_education h2,
+.CV_experience h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.CV_general h3,
+.CV_education h3,
+.CV_experience h3 {
+  font-weight: 500;
+}
+
+.CV_experience .input,
+.CV_education .input,
+.CV_general .input {
+  margin-bottom: 0.75rem;
+}
+
+.CV_general,
+.CV_education,
+.CV_experience {
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.CV_general h2,
+.CV_education h2,
+.CV_experience h2 {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.CV_general h2::after,
+.CV_education h2::after,
+.CV_experience h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(79, 108, 255, 1) 0%,
+    rgba(111, 143, 255, 1) 100%
+  );
+  margin-top: 0.85rem;
+}
+
+.general_Module,
+.education_Module,
+.experience_Module {
+  padding: 1rem;
+  background: rgba(245, 247, 255, 0.9);
+  border-radius: 22px;
+  gap: 1rem;
+}
