@@ -1,62 +1,107 @@
-import { useState } from "react";
-
-export default function CVexperience({ editMode }) {
-  const [company, setCompany] = useState("");
-  const [positionTitle, setPositionTitle] = useState("");
-  const [date, setDate] = useState("");
-
-  function handleChangeCompany(e) {
-    setCompany(e.target.value);
-  }
-  function handleChangePositionTitle(e) {
-    setPositionTitle(e.target.value);
-  }
-  function handleChangeDate(e) {
-    setDate(e.target.value);
+export default function CVexperience({
+  editMode,
+  item,
+  onChange,
+  onRemove,
+  canRemove,
+}) {
+  function handleFieldChange(field, value) {
+    onChange(item.id, field, value);
   }
 
-  if (editMode === true) {
-    return (
-      <section className="experience_Module">
-        <div className="input">
-          <label htmlFor="company">Company</label>
-          <input
-            type="text"
-            name="company"
-            id="company"
-            value={company}
-            onChange={handleChangeCompany}
-          />
-        </div>
-        <div className="input">
-          <label htmlFor="positionTitle">Position title</label>
-          <input
-            type="text"
-            name="positionTitle"
-            id="positionTitle"
-            value={positionTitle}
-            onChange={handleChangePositionTitle}
-          />
-        </div>
-        <div className="input">
-          <label htmlFor="experienceDate">Date</label>
-          <input
-            type="text"
-            name="date"
-            id="experienceDate"
-            value={date}
-            onChange={handleChangeDate}
-          />
-        </div>
-      </section>
-    );
-  } else {
-    return (
-      <section className="experience_Module">
-        <h3>Company: {company}</h3>
-        <h3>Position title: {positionTitle}</h3>
-        <h3>Date: {date}</h3>
-      </section>
-    );
-  }
+  return (
+    <section className="experience_Module entry-module">
+      {editMode ? (
+        <>
+          <div className="entry-row">
+            <div className="input">
+              <label htmlFor={`company-${item.id}`}>Company</label>
+              <input
+                id={`company-${item.id}`}
+                type="text"
+                value={item.company}
+                onChange={(event) =>
+                  handleFieldChange("company", event.target.value)
+                }
+              />
+            </div>
+            <div className="input">
+              <label htmlFor={`position-${item.id}`}>Position</label>
+              <input
+                id={`position-${item.id}`}
+                type="text"
+                value={item.position}
+                onChange={(event) =>
+                  handleFieldChange("position", event.target.value)
+                }
+              />
+            </div>
+          </div>
+          <div className="entry-row">
+            <div className="input">
+              <label htmlFor={`location-${item.id}`}>Location</label>
+              <input
+                id={`location-${item.id}`}
+                type="text"
+                value={item.location}
+                onChange={(event) =>
+                  handleFieldChange("location", event.target.value)
+                }
+              />
+            </div>
+            <div className="input">
+              <label htmlFor={`experience-dates-${item.id}`}>Dates</label>
+              <input
+                id={`experience-dates-${item.id}`}
+                type="text"
+                value={`${item.startDate} — ${item.endDate}`}
+                placeholder="2022 - 2024"
+                onChange={(event) => {
+                  const [startDate, endDate] = event.target.value
+                    .split("—")
+                    .map((part) => part.trim());
+                  handleFieldChange("startDate", startDate || "");
+                  handleFieldChange("endDate", endDate || "");
+                }}
+              />
+            </div>
+          </div>
+          <div className="input">
+            <label htmlFor={`experience-summary-${item.id}`}>Summary</label>
+            <textarea
+              id={`experience-summary-${item.id}`}
+              rows="3"
+              value={item.summary}
+              onChange={(event) =>
+                handleFieldChange("summary", event.target.value)
+              }
+            />
+          </div>
+          {canRemove && (
+            <button
+              className="Form__Btn secondary remove-entry"
+              type="button"
+              onClick={() => onRemove(item.id)}
+            >
+              Remove experience
+            </button>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="entry-row preview-row">
+            <div>
+              <h3>{item.position || "Role"}</h3>
+              <p>{item.company || "Company"}</p>
+            </div>
+            <span className="entry-date">
+              {item.startDate || "Start"} — {item.endDate || "End"}
+            </span>
+          </div>
+          {item.location && <p>{item.location}</p>}
+          {item.summary && <p className="entry-summary">{item.summary}</p>}
+        </>
+      )}
+    </section>
+  );
 }
